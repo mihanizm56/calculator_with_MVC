@@ -1,30 +1,23 @@
 const Model = {
-  result:'',
   equality(string){
-    return View.showItems(eval(string))
+    View.clearDisplay()
+    View.showItems(eval(string))
   },
-  insertNUmber(number){
-    return View.showNumber(number)
+
+  addToListOfNumbers(value){
+    View.showItems(value)
   },
-  addToString(value){
-    this.result += value
-    View.showItems(...this.result)
-    return this.result
-  },
+
   clearResult(){
-    this.result = ''
     View.clearDisplay()
   }
 }
 
 const View = {
-  showItems() {
-    let result = ''
-    for (item of arguments) {
-      result += item
-    }
-    document.getElementById('display').value = result
+  showItems(number) {
+    document.getElementById('display').value += number
   },
+
   clearDisplay(){
     document.getElementById('display').value = ''
   } 
@@ -32,16 +25,18 @@ const View = {
 
 const Controller = {
   init() {
-    this.Listeners(document)
+    this.clickListener(document)
   },
-  Listeners(whereToListen) {
+
+  clickListener(whereToListen) {
     whereToListen.addEventListener('click', () => {
       Controller.delegateClick(event)
     })
   },
+
   delegateClick(event){
     if (event.target.value){
-      Model.addToString(event.target.value)
+      Model.addToListOfNumbers(event.target.value)
     }
     else if (event.target.className == 'button button-cancel'){
       Model.clearResult()
@@ -51,6 +46,5 @@ const Controller = {
     }
   }
 }
-
 
 Controller.init()
