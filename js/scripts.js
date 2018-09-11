@@ -31,6 +31,14 @@ const View = {
 }
 
 const Controller = {
+  init() {
+    this.Listeners(document)
+  },
+  Listeners(whereToListen) {
+    whereToListen.addEventListener('click', () => {
+      Controller.delegateClick(event)
+    })
+  },
   delegateClick(event){
     if (event.target.value){
       Model.addToString(event.target.value)
@@ -41,21 +49,8 @@ const Controller = {
     else if (event.target.className == 'button button-eq') {
       Model.equality(document.getElementById('display').value)
     }
-    //console.log(event.target.value)
-    //Model.insertNUmber(event.target.value)
-  }
-}
-
-const Router = {
-  init() {
-    this.Listeners(document)
-  },
-  Listeners(whereToListen){
-    whereToListen.addEventListener('click',()=>{
-      Controller.delegateClick(event)
-    })
   }
 }
 
 
-Router.init()
+Controller.init()
