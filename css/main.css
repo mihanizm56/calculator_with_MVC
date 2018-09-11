@@ -13,7 +13,7 @@ body {
 }
 body .main-wrapper {
   width: 650px;
-  height: 410px;
+  height: 570px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -47,7 +47,7 @@ body .main-wrapper {
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
-  height: 360px;
+  height: 470px;
   width: 100%;
 }
 .numbers {
@@ -60,7 +60,8 @@ body .main-wrapper {
 }
 .numbers .numbers__first-line,
 .numbers .numbers__second-line,
-.numbers .numbers__third-line {
+.numbers .numbers__third-line,
+.numbers .numbers__fourth-line {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -94,7 +95,8 @@ body .main-wrapper {
 }
 .operators .operators__first-line,
 .operators .operators__second-line,
-.operators .operators__third-line {
+.operators .operators__third-line,
+.operators .operators__fourth-line {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
