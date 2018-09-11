@@ -1,54 +1,56 @@
 const Model = {
-  a,
-  b,
-  sum(a,b){
-    return a+b
-  },
-  diff(a,b){
-    return a-b
-  },
-  mul(a,b){
-    return a*b
-  },
-  div(a,b){
-    if(b!==0){ 
-      return a/b
-    }
-    alert('введите делитель отличный от нуля!')
-    throw new Error()
-  },
+  result:'',
+  eval(){},
   insertNUmber(number){
     return View.showNumber(number)
+  },
+  addToString(value){
+    this.result += value
+    View.showItems(...this.result)
+    return this.result
+  },
+  clearResult(){
+    this.result = ''
+    View.clearDisplay()
   }
 }
 
 const View = {
-  showNumber(number){
-    const display = document.getElementById('display')
-    display.value = number
-  }
+  showItems() {
+    let result = ''
+    for (item of arguments) {
+      result += item
+    }
+    document.getElementById('display').value = result
+  },
+  clearDisplay(){
+    document.getElementById('display').value = ''
+  } 
 }
 
 const Controller = {
   delegateClick(event){
-    if(event.target.className = ''){}
-    if (event.target.className = ''){}
-    if(event.target.className = ''){}
-    if (event.target.className = ''){}
+    if (event.target.value){
+      Model.addToString(event.target.value)
+    }
+    else if (event.target.className == 'button button-cancel'){
+      Model.clearResult()
+    }
     //console.log(event.target.value)
     //Model.insertNUmber(event.target.value)
   }
 }
 
 const Router = {
-  Listeners(whereToListen,callback){
+  init() {
+    this.Listeners(document)
+  },
+  Listeners(whereToListen){
     whereToListen.addEventListener('click',()=>{
       Controller.delegateClick(event)
     })
   }
 }
 
-const initialize = () => {
-  Router.Listeners(document)
-}
-initialize()
+
+Router.init()
