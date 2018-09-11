@@ -1,6 +1,8 @@
 const Model = {
   result:'',
-  eval(){},
+  equality(string){
+    return View.showItems(eval(string))
+  },
   insertNUmber(number){
     return View.showNumber(number)
   },
@@ -35,6 +37,9 @@ const Controller = {
     }
     else if (event.target.className == 'button button-cancel'){
       Model.clearResult()
+    }
+    else if (event.target.className == 'button button-eq') {
+      Model.equality(document.getElementById('display').value)
     }
     //console.log(event.target.value)
     //Model.insertNUmber(event.target.value)
