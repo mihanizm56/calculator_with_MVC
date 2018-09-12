@@ -1,9 +1,7 @@
 const Model = {
   equality(string){
     View.clearDisplay()
-
-    const result = Math.round(eval(string) * 10000) / 10000
-    View.showItems(result)
+    View.showItems(Math.round(eval(string) * 10000) / 10000)
   },
 
   addToListOfNumbers(value){
@@ -11,23 +9,17 @@ const Model = {
   },
   backwards(value){
     View.clearDisplay()
-
-    const result = value.substring(0, value.length - 1)
-    View.showItems(result)
+    View.showItems(value.substring(0, value.length - 1))
   },
   eqSquare(number){
     View.clearDisplay()
-    
     View.showItems(number * number)
   },
   eqSqrt(number) {
     View.clearDisplay()
 
     if(number>=0){
-      const result = Math.sqrt(number)
-      View.showItems(result)
-
-      return
+      View.showItems(Math.sqrt(number))
     }
   },
   clearResult() {
@@ -60,7 +52,9 @@ const Controller = {
   },
 
   delegateClick(event){
-
+    if(event.target.className =='first-line__input'){
+      return
+    }
     if (event.target.value){
       if (event.target.value == '^2'){
         Model.eqSquare(document.getElementById('display').value)
