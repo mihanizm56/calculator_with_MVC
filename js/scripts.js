@@ -1,27 +1,34 @@
 const Model = {
   equality(string){
     View.clearDisplay()
-    View.showItems(Math.round(eval(string)*10000)/10000)
+
+    const result = Math.round(eval(string) * 10000) / 10000
+    View.showItems(result)
   },
 
   addToListOfNumbers(value){
     View.showItems(value)
   },
   backwards(value){
-    console.log(value.slice(0,-1))
-    //View.showItems(value.slice(-1))
+    View.clearDisplay()
+
+    const result = value.substring(0, value.length - 1)
+    View.showItems(result)
   },
   eqSquare(number){
     View.clearDisplay()
+    
     View.showItems(number * number)
   },
   eqSqrt(number) {
     View.clearDisplay()
+
     if(number>=0){
-      View.showItems(Math.sqrt(number))
+      const result = Math.sqrt(number)
+      View.showItems(result)
+
       return
     }
-    View.showItems(0)
   },
   clearResult() {
     View.clearDisplay()
