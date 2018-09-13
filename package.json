@@ -1,0 +1,22 @@
+{
+  "name": "calc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihanizm56/calculator_with_MVC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mihanizm56/calculator_with_MVC/issues"
+  },
+  "homepage": "https://github.com/mihanizm56/calculator_with_MVC#readme",
+  "description": "",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}
