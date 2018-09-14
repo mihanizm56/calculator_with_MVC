@@ -28,6 +28,7 @@
     "gulp-rename": "^1.4.0",
     "livereload-js": "^2.3.0",
     "rimraf": "^2.6.2",
+    "uglify-js": "^3.4.9",
     "vinyl-source-stream": "^2.0.0"
   }
 }
