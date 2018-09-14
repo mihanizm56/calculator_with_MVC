@@ -87,13 +87,13 @@ gulp.task('webserver', function () {
 
 
 gulp.task('watch', function () {
-  gulp.watch([path.watch.html], function (event, cb) {
+  gulp.watch([path.watch.html], function () {
     gulp.start('html');
   });
-  gulp.watch([path.watch.css], function (event, cb) {
+  gulp.watch([path.watch.css], function () {
     gulp.start('css');
   });
-  gulp.watch([path.watch.js], function (event, cb) {
+  gulp.watch([path.watch.js], function () {
     gulp.start('scripts');
   })
 });
