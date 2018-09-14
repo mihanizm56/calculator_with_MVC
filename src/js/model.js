@@ -10,14 +10,17 @@ module.exports = {
   addToListOfNumbers(value) {
     View.showItems(value)
   },
+
   backwards(value) {
     View.clearDisplay()
     View.showItems(value.substring(0, value.length - 1))
   },
+
   eqSquare(number) {
     View.clearDisplay()
     View.showItems(number * number)
   },
+
   eqSqrt(number) {
     View.clearDisplay()
 
@@ -25,6 +28,7 @@ module.exports = {
       View.showItems(Math.sqrt(number))
     }
   },
+  
   clearResult() {
     View.clearDisplay()
   }

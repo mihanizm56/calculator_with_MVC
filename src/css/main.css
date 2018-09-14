@@ -39,8 +39,9 @@ body .main-wrapper {
 .first-line .first-line__input {
   width: 100%;
   padding-left: 20px;
-  font-style: Arial;
   font-size: 20px;
+  border-radius: 8px;
+  border: 1px solid grey;
 }
 .second-line {
   display: flex;
