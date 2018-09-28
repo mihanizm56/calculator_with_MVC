@@ -1,4 +1,6 @@
 const Model = require('./model')
+const View = require('./view')
+
 
 module.exports = {
   init() {
@@ -31,8 +33,8 @@ module.exports = {
       if (event.target.value == 'equal') {
         return Model.equality(document.getElementById('display').value)
       }
-
       Model.addToListOfNumbers(event.target.value)
+      View.observerTest()
     }
   }
 }
