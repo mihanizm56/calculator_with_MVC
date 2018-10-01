@@ -58,17 +58,18 @@ module.exports = {
 
 module.exports = {
   state:0,
-  value:'',
+  result:'',
   equality(string) {
     //View.clearDisplay()
     //View.showItems(Math.round(eval(string) * 10000) / 10000)
   },
 
   addToListOfNumbers(value) {
+    console.log('this.value было = ' + this.result)
     console.log('в model пришло ' + value)
-
-    console.log('this.value = ' + this.value)
-    return this.value += value
+    this.result += value
+    console.log('this.value стало = ' + this.result)
+    return 
   },
 
   backwards(value) {
@@ -121,20 +122,14 @@ const EventObserver = require('./observer')
 
 module.exports = {
   showItems() {
-    // if (number == 'Infinity') {
-    //   number = '0'
-    // }
-    //document.getElementById('display').value += value
-
     const observer = new EventObserver()
 
     observer.subscribe(value => {
-      console.log('broadcast catched' + value)
-      document.getElementById('display').value += value
+      this.clearDisplay()
+      document.getElementById('display').value = value
     })
-    observer.broadcast(Model.value)
 
-    
+    observer.broadcast(Model.result)
   },
 
   clearDisplay() {
