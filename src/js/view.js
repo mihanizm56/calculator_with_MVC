@@ -2,26 +2,24 @@ const Model = require('./model')
 const EventObserver = require('./observer')
 
 module.exports = {
-  showItems(number) {
-    if (number == 'Infinity') {
-      number = '0'
-    }
-    
-    document.getElementById('display').value += number
-  },
+  showItems() {
+    // if (number == 'Infinity') {
+    //   number = '0'
+    // }
+    //document.getElementById('display').value += value
 
-  observerTest(){
     const observer = new EventObserver()
 
     observer.subscribe(value => {
       console.log('broadcast catched' + value)
+      document.getElementById('display').value += value
     })
+    observer.broadcast(Model.value)
 
-    console.log(`Model.state = ${Model.state}`)
-    observer.broadcast(Model.state)
+    
   },
 
   clearDisplay() {
     document.getElementById('display').value = ''
-  }
+  },
 }

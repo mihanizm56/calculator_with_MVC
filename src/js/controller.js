@@ -4,7 +4,8 @@ const View = require('./view')
 
 module.exports = {
   init() {
-    this.clickListener(document)
+    document.addEventListener('click', this.delegateClick)
+    
   },
 
   clickListener(object) {
@@ -18,23 +19,24 @@ module.exports = {
       return
     }
     if (event.target.value) {
-      if (event.target.value == '^2') {
-        return Model.eqSquare(document.getElementById('display').value)
-      }
-      if (event.target.value == 'sqrt') {
-        return Model.eqSqrt(document.getElementById('display').value)
-      }
-      if (event.target.value == 'back') {
-        return Model.backwards(document.getElementById('display').value)
-      }
-      if (event.target.value == 'cancel') {
-        return Model.clearResult()
-      }
-      if (event.target.value == 'equal') {
-        return Model.equality(document.getElementById('display').value)
-      }
+      // if (event.target.value == '^2') {
+      //   return Model.eqSquare(document.getElementById('display').value)
+      // }
+      // if (event.target.value == 'sqrt') {
+      //   return Model.eqSqrt(document.getElementById('display').value)
+      // }
+      // if (event.target.value == 'back') {
+      //   return Model.backwards(document.getElementById('display').value)
+      // }
+      // if (event.target.value == 'cancel') {
+      //   return Model.clearResult()
+      // }
+      // if (event.target.value == 'equal') {
+      //   return Model.equality(document.getElementById('display').value)
+      // }
       Model.addToListOfNumbers(event.target.value)
-      View.observerTest()
+      View.showItems()
+      //View.observerTest()
     }
   }
 }

@@ -3,18 +3,17 @@
 
 module.exports = {
   state:0,
-  test(state){
-    console.log(`state прилетел = ${state}`)
-    this.state = state
-  },
+  value:'',
   equality(string) {
     //View.clearDisplay()
     //View.showItems(Math.round(eval(string) * 10000) / 10000)
   },
 
   addToListOfNumbers(value) {
-    this.test(value)
-    //View.showItems(value)
+    console.log('в model пришло ' + value)
+
+    console.log('this.value = ' + this.value)
+    return this.value += value
   },
 
   backwards(value) {
