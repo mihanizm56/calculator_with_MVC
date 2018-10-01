@@ -1,41 +1,31 @@
 
-//const View = require('./view')
-
 module.exports = {
   state:0,
   result:'',
-  equality(string) {
-    //View.clearDisplay()
-    //View.showItems(Math.round(eval(string) * 10000) / 10000)
+
+  makeResult() {
+    return this.result = Math.round(eval(this.result) * 10000) / 10000
   },
 
   addToListOfNumbers(value) {
-    console.log('this.value было = ' + this.result)
-    console.log('в model пришло ' + value)
-    this.result += value
-    console.log('this.value стало = ' + this.result)
-    return 
+    return this.result += value
   },
 
-  backwards(value) {
-    //View.clearDisplay()
-    //View.showItems(value.substring(0, value.length - 1))
+  backwards() {
+    this.result =  this.result.substring(0,  this.result.length - 1)
   },
 
-  eqSquare(number) {
-    //View.clearDisplay()
-    //View.showItems(number * number)
+  eqSquare() {
+    return this.result = this.result * this.result
   },
 
-  eqSqrt(number) {
-    //View.clearDisplay()
-
-    if (number >= 0) {
-      //View.showItems(Math.sqrt(number))
+  eqSqrt() {
+    if (this.result >= 0) {
+      return this.result = Math.sqrt(this.result)
     }
   },
   
   clearResult() {
-    //View.clearDisplay()
+    return this.result = '' 
   }
 }

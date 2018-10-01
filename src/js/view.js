@@ -15,5 +15,5 @@ module.exports = {
 
   clearDisplay() {
     document.getElementById('display').value = ''
-  },
+  }
 }
