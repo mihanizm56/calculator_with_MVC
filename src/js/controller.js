@@ -1,9 +1,13 @@
 const Model = require('./model')
 const View = require('./view')
+const EventObserver = require('./observer')
 
-module.exports = {
+ const Controller = {
   init() {
-    document.addEventListener('click', this.delegateClick)
+    document.addEventListener('click', () => {
+      this.delegateClick(event)
+      
+    })
   },
 
   delegateClick(event) {
@@ -43,3 +47,4 @@ module.exports = {
   }
 }
 
+module.exports = Controller

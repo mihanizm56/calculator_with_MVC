@@ -1,5 +1,5 @@
 
-module.exports = {
+const Model = {
   state:0,
   result:'',
 
@@ -29,3 +29,6 @@ module.exports = {
     return this.result = '' 
   }
 }
+
+
+module.exports = Model
