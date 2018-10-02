@@ -1,12 +1,10 @@
 const Model = require('./model')
 const View = require('./view')
-const EventObserver = require('./observer')
 
  const Controller = {
   init() {
     document.addEventListener('click', () => {
       this.delegateClick(event)
-      
     })
   },
 
