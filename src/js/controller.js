@@ -1,14 +1,9 @@
 const Model = require('./model')
 const View = require('./view')
 
-
-module.exports = {
+ const Controller = {
   init() {
-    this.clickListener(document)
-  },
-
-  clickListener(object) {
-    object.addEventListener('click', () => {
+    document.addEventListener('click', () => {
       this.delegateClick(event)
     })
   },
@@ -19,23 +14,35 @@ module.exports = {
     }
     if (event.target.value) {
       if (event.target.value == '^2') {
-        return Model.eqSquare(document.getElementById('display').value)
+        Model.eqSquare()
+        View.showItems()
+        return 
       }
       if (event.target.value == 'sqrt') {
-        return Model.eqSqrt(document.getElementById('display').value)
+        Model.eqSqrt()
+        View.showItems()
+        return 
       }
       if (event.target.value == 'back') {
-        return Model.backwards(document.getElementById('display').value)
+        Model.backwards()
+        View.showItems()
+        return 
       }
       if (event.target.value == 'cancel') {
-        return Model.clearResult()
+        Model.clearResult()
+        View.showItems()
+        return 
       }
       if (event.target.value == 'equal') {
-        return Model.equality(document.getElementById('display').value)
+        Model.makeResult()
+        View.showItems()
+        return 
       }
+
       Model.addToListOfNumbers(event.target.value)
-      View.observerTest()
+      View.showItems()
     }
   }
 }
 
+module.exports = Controller
